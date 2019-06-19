@@ -49,11 +49,11 @@ class PostController extends Controller
         //indicamos el repositorio que queremos
         $repository = $em->getRepository('BlogBundle:Post');
         
-        //dump($repository->findAll());
+        $posts = $repository->findAll();
         //persistimos la entidad        
         // $em->persist($post);
         // $em->flush();
-        return $this->render('@Blog/Default/posts.html.twig');
+        return $this->render('@Blog/Default/posts.html.twig',['posts'=>$posts]);
 
         // return new Response("Retorno post creado ->".$post->getId());
     }
