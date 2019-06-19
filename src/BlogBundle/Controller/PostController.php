@@ -49,7 +49,7 @@ class PostController extends Controller
         //indicamos el repositorio que queremos
         $repository = $em->getRepository('BlogBundle:Post');
         
-        dump($repository->findAll());
+        //dump($repository->findAll());
         //persistimos la entidad        
         // $em->persist($post);
         // $em->flush();
