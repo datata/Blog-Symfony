@@ -7,4 +7,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class BlogController extends Controller
 {
+    /**
+     * @Route("/")
+     */
+    public function indexAction()
+    {
+        return $this->render('@Blog/Default/index.html.twig',['nombre'=>'Xavi']);
+    }
 }
