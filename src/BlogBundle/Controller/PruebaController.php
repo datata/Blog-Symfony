@@ -12,7 +12,7 @@ class PruebaController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('BlogBundle:Prueba:index.html.twig', array(
+        return $this->render('@Blog/Prueba/index.html.twig', array(
             // ...
         ));
     }
