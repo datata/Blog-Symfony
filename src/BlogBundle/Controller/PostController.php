@@ -30,7 +30,8 @@ class PostController extends Controller
         $post->setBody('Es el cuerpo');
         $post->setTag('untag');
         $post->setCreateAt(new \DateTime('now'));
-        $post->setIduser(1);
+        //ya no tenemos esta propiedad en la tabla
+        //$post->setIduser(1);
 
         //persistimos la entidad        
         $em->persist($post);
@@ -141,7 +142,7 @@ class PostController extends Controller
         $em->flush();  
 
         return $this->redirect('/blog/post/getall');
-        
+
         
         //return new Response("Post eliminado ->".$post->getId());      
                
