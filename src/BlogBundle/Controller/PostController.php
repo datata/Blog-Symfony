@@ -57,4 +57,25 @@ class PostController extends Controller
 
         // return new Response("Retorno post creado ->".$post->getId());
     }
+
+    /**
+    * @Route("/findtitle/{title}")
+    */
+    public function getPostByTitle($title)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('BlogBundle:Post');
+        
+        
+        $posts = $repository->findByTitle($title);
+
+        // $posts = $repository->findBy(array('title' => $title,
+        //                                    'tag'=>'tag'));
+
+        if(!$posts) return new Response ('No existe post');
+
+        return $this->render('@Blog/Default/posts.html.twig',['posts'=>$posts]);
+               
+        //return new Response("Retorno title recuperado ->".$post->getTitle());
+    }
 }

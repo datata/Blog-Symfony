@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}BlogBundle:Prueba:index{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="card">
+        <div class="card-header">
+          {{post.title}}
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{post.body}}</p>
+            <footer class="blockquote-footer">{{post.createat|date("m/d/Y H:i:s")}} </footer>
+          </blockquote>
+        </div>
+       </div>
+      
+
+{% endblock %}
