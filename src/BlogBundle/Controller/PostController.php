@@ -142,6 +142,7 @@ class PostController extends Controller
 
         return $this->redirect('/blog/post/getall');
         
+        
         //return new Response("Post eliminado ->".$post->getId());      
                
        

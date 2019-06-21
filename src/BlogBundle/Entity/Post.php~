@@ -43,11 +43,10 @@ class Post
     private $tag;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="iduser", type="integer")
+     *@ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     *@ORM\JoinColumn(name="post_id", referencedColumnName="id")
      */
-    private $iduser;
+    private $user;
 
     /**
      * @var \DateTime
@@ -122,29 +121,6 @@ class Post
         return $this->body;
     }
 
-    /**
-     * Set iduser
-     *
-     * @param integer $iduser
-     *
-     * @return Post
-     */
-    public function setIduser($iduser)
-    {
-        $this->iduser = $iduser;
-
-        return $this;
-    }
-
-    /**
-     * Get iduser
-     *
-     * @return int
-     */
-    public function getIduser()
-    {
-        return $this->iduser;
-    }
 
     /**
      * Set createat
@@ -193,5 +169,28 @@ class Post
     {
         return $this->updateat;
     }
-}
 
+    /**
+     * Set tag
+     *
+     * @param string $tag
+     *
+     * @return Post
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+}
