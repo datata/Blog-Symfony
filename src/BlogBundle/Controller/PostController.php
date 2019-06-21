@@ -102,6 +102,28 @@ class PostController extends Controller
     }
 
 
+    /**
+    * @Route("/deletepost/{id}")
+    */
+    public function deletePost($id)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('BlogBundle:Post');        
+        
+        $post = $repository->find($id);
+
+        $em->remove($post);
+
+        $em->flush();  
+        
+        return new Response("Post eliminado ->".$post->getId());      
+               
+       
+    }
+
+
 
 
 }
