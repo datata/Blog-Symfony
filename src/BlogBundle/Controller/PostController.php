@@ -123,6 +123,30 @@ class PostController extends Controller
        
     }
 
+    /**
+    * @Route("/updatepost/{id}")
+    */
+    public function updatePost($id)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository('BlogBundle:Post')->find($id); 
+        
+        if(!$post) return new Response ('No existe post');
+
+        $post->setTitle("ahora si");
+        
+        //$em->persist($post);
+        $em->flush();  
+
+        return $this->redirect('/blog/post/getall');
+        
+        //return new Response("Post eliminado ->".$post->getId());      
+               
+       
+    }
+
 
 
 
