@@ -12,8 +12,6 @@ use BlogBundle\Entity\Post;
 /**
 * @Route("/post")
 */
-
-
 class PostController extends Controller
 {
     /**
@@ -21,17 +19,23 @@ class PostController extends Controller
      */
     public function addAction()
     {
+        
         // cargar entity manager
         $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('BlogBundle:User');
+
+        //Creamos usuario
+        $user = $repository->find(1);
+        
         //dump($em);
         //creamos la entidad que hemos creado
         $post = new Post();
-        $post->setTitle('Prueba');
+        $post->setTitle('Prueba con uSER');
         $post->setBody('Es el cuerpo');
         $post->setTag('untag');
         $post->setCreateAt(new \DateTime('now'));
-        //ya no tenemos esta propiedad en la tabla
-        //$post->setIduser(1);
+        
+        $post->setIduser(1);
 
         //persistimos la entidad        
         $em->persist($post);
@@ -108,7 +112,6 @@ class PostController extends Controller
     */
     public function deletePost($id)
     {
-
 
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('BlogBundle:Post');        
